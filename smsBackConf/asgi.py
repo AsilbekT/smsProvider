@@ -8,7 +8,6 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'smsBackConf.settings')
 
 application = ProtocolTypeRouter({
     "http": get_asgi_application(),
-    # Define WebSocket protocol routing:
     "websocket": AuthMiddlewareStack(
         URLRouter(
             smsApp.routing.websocket_urlpatterns
